@@ -23,7 +23,7 @@ engine = GameEngine(WIDTH, HEIGHT)
 def main():
     running = True
     while running:
-        SCREEN.fill(BLACK)
+        SCREEN.fill((0, 0, 0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -31,6 +31,7 @@ def main():
         engine.handle_input()
         engine.update()
         engine.render(SCREEN)
+        engine.check_game_over(SCREEN)  
 
         pygame.display.flip()
         clock.tick(FPS)
